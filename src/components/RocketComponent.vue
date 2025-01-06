@@ -32,15 +32,13 @@ const checkRocketStage = () => {
 <style scoped>
 .rocket {
   position: absolute;
-
   top: 60%;
   left: 50%;
   transform:translate(-50%, -50%);
-
+  z-index: 0;
   img {
     width: 14rem;
     height: 14rem;
-
   }
 }
 </style>

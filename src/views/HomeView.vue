@@ -1,8 +1,8 @@
 <script setup>
 import {ref} from "vue";
-import SidebarComponent from "@/components/SidebarComponent.vue";
 import MenuIcon from "@/components/icons/menu.svg"
 import RocketComponent from "@/components/RocketComponent.vue";
+import SidebarComponent from "@/components/SidebarComponent.vue";
 
 const isSidebarActive = ref(false)
 
@@ -14,12 +14,11 @@ const toggleSidebar = () => {
 
 <template>
   <main>
-    <SidebarComponent :toggle-sidebar="toggleSidebar"
-      v-if="isSidebarActive"/>
+    <SidebarComponent :toggle-sidebar="toggleSidebar" :is-sidebar-active="isSidebarActive"/>
     <img :src="MenuIcon" alt=""
          class="menu-icon" @click="toggleSidebar"
-         v-else>
-    <RocketComponent :stage="1"/>
+         v-if="!isSidebarActive">
+    <RocketComponent :stage="4"/>
   </main>
 </template>
 
@@ -39,4 +38,5 @@ main {
   width: 1.75rem;
   height: 1.75rem;
 }
+
 </style>

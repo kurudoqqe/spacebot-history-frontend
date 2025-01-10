@@ -13,6 +13,7 @@ const props = defineProps({
 
 const checkRocketStage = () => {
   switch (props.stage) {
+    case 0: return null
     case 1: return RocketStage1;
     case 2: return RocketStage2;
     case 3: return RocketStage3;
@@ -25,7 +26,7 @@ const checkRocketStage = () => {
 
 <template>
   <div class="rocket">
-    <img :src="checkRocketStage()" alt="RocketStage1" />
+    <img :src="checkRocketStage()" alt="" v-if="props.stage !== 0"/>
   </div>
 </template>
 

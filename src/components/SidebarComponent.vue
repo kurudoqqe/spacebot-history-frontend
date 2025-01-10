@@ -25,9 +25,9 @@ defineProps({
         <h1>МЕНЮ</h1>
       </div>
       <nav>
-        <a @click="router.push({name: 'home'})">Луна</a>
-        <a @click="router.push('/')">Магазин</a>
-        <a @click="router.push('/')">Космос</a>
+        <a @click="router.push({name: 'Surface'})">Поверхность</a>
+        <a @click="router.push({name: 'Mine'})">Шахта</a>
+        <a @click="router.push({name: 'Shop'})">Магазин</a>
       </nav>
       <p>Версия 1.0</p>
     </aside>

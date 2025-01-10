@@ -1,7 +1,6 @@
 <script setup>
 import {ref} from "vue";
 import MenuIcon from "@/components/icons/menu.svg"
-import RocketComponent from "@/components/RocketComponent.vue";
 import SidebarComponent from "@/components/SidebarComponent.vue";
 
 const isSidebarActive = ref(false)
@@ -18,16 +17,12 @@ const toggleSidebar = () => {
     <img :src="MenuIcon" alt=""
          class="menu-icon" @click="toggleSidebar"
          v-if="!isSidebarActive">
-    <RocketComponent :stage="4"/>
   </main>
 </template>
 
 <style scoped>
 main {
-  position: relative;
-  height: fit-content;
-  margin: 0 auto;
-  background-image: url("../assets/images/moon-background.jpg");
+  background-image: url("../assets/images/mine-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -38,5 +33,4 @@ main {
   width: 1.75rem;
   height: 1.75rem;
 }
-
 </style>

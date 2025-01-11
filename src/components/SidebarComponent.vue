@@ -1,6 +1,9 @@
 <script setup>
 import router from "@/router/routes.js";
 import CloseIcon from "@/components/icons/close.svg"
+import MoonIcon from "@/components/icons/moon.png"
+import PickaxeIcon from "@/components/icons/pickaxe.png"
+import StoreIcon from "@/components/icons/store.png"
 
 defineProps({
   isSidebarActive: {
@@ -25,9 +28,18 @@ defineProps({
         <h1>МЕНЮ</h1>
       </div>
       <nav>
-        <a @click="router.push({name: 'Surface'})">Поверхность</a>
-        <a @click="router.push({name: 'Mine'})">Шахта</a>
-        <a @click="router.push({name: 'Shop'})">Магазин</a>
+        <div @click="router.push({name: 'Surface'})">
+          <img :src="MoonIcon" alt="">
+          <a>Поверхность</a>
+        </div>
+        <div @click="router.push({name: 'Mine'})">
+          <img :src="PickaxeIcon" alt="">
+          <a>Шахта</a>
+        </div>
+        <div @click="router.push({name: 'Shop'})">
+          <img :src="StoreIcon" alt="">
+          <a>Магазин</a>
+        </div>
       </nav>
       <p>Версия 1.0</p>
     </aside>
@@ -74,13 +86,23 @@ aside {
     flex-direction: column;
     gap: 2.25rem;
 
-    > a {
-      @include variables.capital-text;
-      color: var(--text-color);
-      text-shadow: var(--text-shadow);
-      font-size: 1.5rem;
-      text-decoration: underline;
-      text-underline-offset: .25rem;
+    > div {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+
+      > a {
+        @include variables.capital-text;
+        color: var(--text-color);
+        text-shadow: var(--text-shadow);
+        font-size: 1.25rem;
+      }
+
+      > img {
+        padding: .25rem;
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
 

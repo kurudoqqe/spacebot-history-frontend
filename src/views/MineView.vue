@@ -18,7 +18,12 @@ const toggleSidebar = () => {
     <img :src="MenuIcon" alt=""
          class="menu-icon" @click="toggleSidebar"
          v-if="!isSidebarActive">
-    <MoonCrystal class="crystal" size="medium"/>
+    <MoonCrystal class="crystal-main" size="medium"
+                 :clickable="true" :farming="false"/>
+    <MoonCrystal class="crystal-additional-1" size="small"
+                 :clickable="false" :farming="true"/>
+    <MoonCrystal class="crystal-additional-2" size="small"
+                 :clickable="false" :farming="true"/>
   </main>
 </template>
 
@@ -39,10 +44,21 @@ main {
   height: 1.75rem;
 }
 
-.crystal {
+.crystal-main {
   position: absolute;
   top: 50%;
   left: 35%;
-  z-index: 0;
+}
+
+.crystal-additional-1 {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.crystal-additional-2 {
+  position: absolute;
+  bottom: 27.5%;
+  left: 10%;
 }
 </style>

@@ -89,7 +89,7 @@ aside {
     > div {
       display: flex;
       align-items: center;
-      gap: .25rem;
+      gap: .5rem;
 
       > a {
         @include variables.capital-text;

@@ -1,8 +1,8 @@
 <script setup>
 import {ref} from "vue";
 import MenuIcon from "@/components/icons/menu.svg"
-import SidebarComponent from "@/components/SidebarComponent.vue";
 import MoonCrystal from "@/components/MoonCrystal.vue";
+import SidebarComponent from "@/components/SidebarComponent.vue";
 
 const isSidebarActive = ref(false)
 

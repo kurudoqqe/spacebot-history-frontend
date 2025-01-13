@@ -1,7 +1,7 @@
+import { ref } from "vue";
 import { defineStore } from 'pinia'
-import {ref} from "vue";
 
-const useStageStore = defineStore('currentRocketStage', () => {
+export const useStageStore = defineStore('currentRocketStage', () => {
   const currentRocketStage = ref(0)
 
   const upgradeRocket = () => {
@@ -10,5 +10,3 @@ const useStageStore = defineStore('currentRocketStage', () => {
 
   return {currentRocketStage, upgradeRocket}
 })
-
-export default useStageStore

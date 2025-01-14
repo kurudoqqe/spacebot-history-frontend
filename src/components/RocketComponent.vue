@@ -9,6 +9,10 @@ const props = defineProps({
   stage: {
     type: Number,
     required: true
+  },
+  isActive: {
+    type: Boolean,
+    required: true
   }
 })
 
@@ -27,8 +31,9 @@ const checkRocketStage = () => {
 </script>
 
 <template>
-  <div class="rocket">
-    <img :src="checkRocketStage()" alt="" v-if="props.stage !== 0"/>
+  <div class="rocket" :class="props.isActive ? 'active' : ''">
+    <img :src="checkRocketStage()" alt=""
+         v-if="props.stage !== 0"/>
   </div>
 </template>
 
@@ -38,10 +43,15 @@ const checkRocketStage = () => {
   top: 60%;
   left: 50%;
   transform:translate(-50%, -50%);
+  transition: transform 8s ease-out;
   z-index: 0;
   img {
     width: 14rem;
     height: 14rem;
+  }
+
+  &.active {
+    transform: translate(-50%, -300%);
   }
 }
 </style>

@@ -1,11 +1,12 @@
 <script setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import MenuIcon from "@/components/icons/menu.svg"
 import {useStageStore} from "@/store/currentStage.js"
 import RocketComponent from "@/components/RocketComponent.vue";
 import SidebarComponent from "@/components/SidebarComponent.vue";
 
 const isSidebarActive = ref(false)
+const isRocketActive = ref(false)
 
 const toggleSidebar = () => {
   isSidebarActive.value = !isSidebarActive.value
@@ -13,15 +14,24 @@ const toggleSidebar = () => {
 
 const stage_store = useStageStore();
 
+onMounted(() => {
+  if (stage_store.currentRocketStage === 5) {
+    setTimeout(() => {
+      isRocketActive.value = true
+    })
+  }
+})
 </script>
 
 <template>
   <main>
-    <SidebarComponent :toggle-sidebar="toggleSidebar" :is-sidebar-active="isSidebarActive"/>
-    <img :src="MenuIcon" alt=""
-         class="menu-icon" @click="toggleSidebar"
-         v-if="!isSidebarActive">
-    <RocketComponent :stage="stage_store.currentRocketStage"/>
+    <div v-if="isRocketActive === false">
+      <SidebarComponent :toggle-sidebar="toggleSidebar" :is-sidebar-active="isSidebarActive"/>
+      <img :src="MenuIcon" alt=""
+           class="menu-icon" @click="toggleSidebar"
+           v-if="!isSidebarActive">
+    </div>
+    <RocketComponent :stage="stage_store.currentRocketStage" :is-active="isRocketActive"/>
   </main>
 </template>
 

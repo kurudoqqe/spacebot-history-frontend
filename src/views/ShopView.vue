@@ -43,7 +43,7 @@ const pickaxe_store = usePickaxeStore();
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 2"/>
         <ShopSectionComponent :price="1000" content="Часть ракеты" :icon="RocketIcon"
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 3"/>
-        <ShopSectionComponent :price="1500" content="Запустить ракету" :icon="RocketIcon"
+        <ShopSectionComponent :price="1500" content="Запуск ракеты" :icon="RocketIcon"
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 4"/>
       </div>
       <div>

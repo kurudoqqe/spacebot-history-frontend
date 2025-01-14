@@ -24,7 +24,7 @@ const store = useCrystalCountStore()
 const enlargeCrystal = (target) => {
   if (props.clickable) {
     target.classList.add("clicked");
-    store.IncreaseCrystalCount(1)
+    store.increaseCrystalCount()
     setTimeout(() => {
       target.classList.remove("clicked");
     }, 100)
@@ -36,7 +36,7 @@ const autoFarmCrystal = () => {
   pickaxes.forEach(pickaxe => {
     const farm = () => {
       pickaxe.classList.add("farming");
-      store.IncreaseCrystalCount(1)
+      store.increaseCrystalCount()
       setTimeout(() => {
         pickaxe.classList.remove("farming");
       }, 500);

@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import MenuIcon from "@/components/icons/menu.svg"
+import {useStageStore} from "@/store/currentStage.js"
 import RocketComponent from "@/components/RocketComponent.vue";
 import SidebarComponent from "@/components/SidebarComponent.vue";
 
@@ -10,6 +11,8 @@ const toggleSidebar = () => {
   isSidebarActive.value = !isSidebarActive.value
 }
 
+const stage_store = useStageStore();
+
 </script>
 
 <template>
@@ -18,7 +21,7 @@ const toggleSidebar = () => {
     <img :src="MenuIcon" alt=""
          class="menu-icon" @click="toggleSidebar"
          v-if="!isSidebarActive">
-    <RocketComponent :stage="0"/>
+    <RocketComponent :stage="stage_store.currentRocketStage"/>
   </main>
 </template>
 

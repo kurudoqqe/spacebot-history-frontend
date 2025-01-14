@@ -2,6 +2,7 @@
 import {ref} from "vue";
 import MenuIcon from "@/components/icons/menu.svg"
 import MoonCrystal from "@/components/MoonCrystal.vue";
+import {usePickaxeStore} from "@/store/pickaxeState.js";
 import {useCrystalCountStore} from "@/store/crystalCount.js"
 import SidebarComponent from "@/components/SidebarComponent.vue";
 import CrystalCountComponent from "@/components/CrystalCountComponent.vue";
@@ -12,7 +13,8 @@ const toggleSidebar = () => {
   isSidebarActive.value = !isSidebarActive.value
 }
 
-const store = useCrystalCountStore();
+const crystal_store = useCrystalCountStore();
+const pickaxe_store = usePickaxeStore()
 
 </script>
 
@@ -22,14 +24,14 @@ const store = useCrystalCountStore();
     <img :src="MenuIcon" alt=""
          class="menu-icon" @click="toggleSidebar"
          v-if="!isSidebarActive">
-    <CrystalCountComponent size="large" :count="store.crystalCount"
+    <CrystalCountComponent size="large" :count="crystal_store.crystalCount"
     class="crystal-count"/>
     <MoonCrystal class="crystal-main" size="medium"
                  :clickable="true" :farming="false"/>
     <MoonCrystal class="crystal-additional-1" size="small"
-                 :clickable="false" :farming="true"/>
+                 :clickable="false" :farming="pickaxe_store.isActivePickaxe1"/>
     <MoonCrystal class="crystal-additional-2" size="small"
-                 :clickable="false" :farming="true"/>
+                 :clickable="false" :farming="pickaxe_store.isActivePickaxe2"/>
   </main>
 </template>
 
@@ -53,7 +55,7 @@ main {
 .crystal-count {
   position: absolute;
   top: 10%;
-  left: 30%;
+  left: 27.5%;
 }
 
 .crystal-main {

@@ -15,16 +15,16 @@ const props = defineProps({
 const roundCrystalCount = (value) => {
   let str_value = value.toString()
   if (value >= 1000 && value <= 999999) {
-    return `${str_value.slice(0, -3)}K`
+    return `${str_value.slice(0, -3)}.${str_value[1]}K`
   }
-  if (value >= 100000 && value <= 999999999) {
-    return `${str_value.slice(0, -6)}M`
+  if (value >= 1000000 && value <= 999999999) {
+    return `${str_value.slice(0, -6)}.${str_value[1]}M`
   }
-  if (value >= 100000000 && value <= 999999999999) {
-    return `${str_value.slice(0, -9)}B`
+  if (value >= 1000000000 && value <= 9999999999999) {
+    return `${str_value.slice(0, -9)}.${str_value[1]}B`
   }
-  if (value >= 100000000000 && value <= 999999999999999) {
-    return `${str_value.slice(0, -12)}T`
+  if (value >= 1000000000000 && value <= 999999999999999) {
+    return `${str_value.slice(0, -12)}.${str_value[1]}T`
   }
   else return value
 }

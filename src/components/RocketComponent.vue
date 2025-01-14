@@ -3,6 +3,7 @@ import RocketStage1 from "@/assets/images/rocket-stages/stage-1.png";
 import RocketStage2 from "@/assets/images/rocket-stages/stage-2.png";
 import RocketStage3 from "@/assets/images/rocket-stages/stage-3.png";
 import RocketStage4 from "@/assets/images/rocket-stages/stage-4.png";
+import StageStart from "@/assets/images/rocket-stages/stage-start.png"
 
 const props = defineProps({
   stage: {
@@ -18,6 +19,7 @@ const checkRocketStage = () => {
     case 2: return RocketStage2;
     case 3: return RocketStage3;
     case 4: return RocketStage4;
+    case 5: return StageStart;
 
     default: return RocketStage1;
   }

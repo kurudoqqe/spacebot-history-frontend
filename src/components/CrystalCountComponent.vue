@@ -31,18 +31,21 @@ const roundCrystalCount = (value) => {
 </script>
 
 <template>
-  <main :class="props.size">
+  <div :class="props.size" class="count-container">
     <img :src="MoonPiece" alt="">
     <h3>{{roundCrystalCount(props.count)}}</h3>
-  </main>
+  </div>
 </template>
 
 <style scoped lang="scss">
 @use "../assets/variables.scss";
-main {
+
+.count-container {
   display: flex;
   align-items: center;
   gap: .5rem;
+  width: fit-content;
+  height: fit-content;
 
   &.small {
     > img {

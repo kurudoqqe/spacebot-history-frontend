@@ -1,7 +1,8 @@
 <script setup>
-import Pickaxe from "../assets/images/moon/pickaxe.png";
-import MoonCrystal from "../assets/images/moon/moon-crystal.png"
 import {onMounted} from "vue";
+import Pickaxe from "../assets/images/moon/pickaxe.png";
+import {useCrystalCountStore} from "@/store/crystalCount.js"
+import MoonCrystal from "../assets/images/moon/moon-crystal.png"
 
 const props = defineProps({
   size: {
@@ -18,9 +19,12 @@ const props = defineProps({
   }
 })
 
+const store = useCrystalCountStore()
+
 const enlargeCrystal = (target) => {
   if (props.clickable) {
     target.classList.add("clicked");
+    store.IncreaseCrystalCount(1)
     setTimeout(() => {
       target.classList.remove("clicked");
     }, 100)
@@ -32,7 +36,7 @@ const autoFarmCrystal = () => {
   pickaxes.forEach(pickaxe => {
     const farm = () => {
       pickaxe.classList.add("farming");
-
+      store.IncreaseCrystalCount(1)
       setTimeout(() => {
         pickaxe.classList.remove("farming");
       }, 500);

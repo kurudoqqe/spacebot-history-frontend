@@ -2,13 +2,17 @@
 import {ref} from "vue";
 import MenuIcon from "@/components/icons/menu.svg"
 import MoonCrystal from "@/components/MoonCrystal.vue";
+import {useCrystalCountStore} from "@/store/crystalCount.js"
 import SidebarComponent from "@/components/SidebarComponent.vue";
+import CrystalCountComponent from "@/components/CrystalCountComponent.vue";
 
 const isSidebarActive = ref(false)
 
 const toggleSidebar = () => {
   isSidebarActive.value = !isSidebarActive.value
 }
+
+const store = useCrystalCountStore();
 
 </script>
 
@@ -18,6 +22,8 @@ const toggleSidebar = () => {
     <img :src="MenuIcon" alt=""
          class="menu-icon" @click="toggleSidebar"
          v-if="!isSidebarActive">
+    <CrystalCountComponent size="large" :count="store.crystalCount"
+    class="crystal-count"/>
     <MoonCrystal class="crystal-main" size="medium"
                  :clickable="true" :farming="false"/>
     <MoonCrystal class="crystal-additional-1" size="small"
@@ -44,6 +50,12 @@ main {
   height: 1.75rem;
 }
 
+.crystal-count {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+}
+
 .crystal-main {
   position: absolute;
   top: 50%;
@@ -51,12 +63,14 @@ main {
 }
 
 .crystal-additional-1 {
+  display: inline;
   position: absolute;
   bottom: 5%;
   right: 5%;
 }
 
 .crystal-additional-2 {
+  display: inline;
   position: absolute;
   bottom: 27.5%;
   left: 10%;

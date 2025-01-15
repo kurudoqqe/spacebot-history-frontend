@@ -21,7 +21,7 @@ onMounted(() => {
     })
     setTimeout(() => {
       document.querySelector(".congratulations").classList.add("active")
-    }, )
+    }, 6000)
   }
 })
 </script>

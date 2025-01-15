@@ -37,24 +37,24 @@ const pickaxe_store = usePickaxeStore();
       <div>
         <ShopSectionComponent :price="250" content="Часть ракеты" :icon="RocketIcon"
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 0"/>
-        <ShopSectionComponent :price="500" content="Часть ракеты" :icon="RocketIcon"
+        <ShopSectionComponent :price="400" content="Часть ракеты" :icon="RocketIcon"
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 1"/>
-        <ShopSectionComponent :price="750" content="Часть ракеты" :icon="RocketIcon"
+        <ShopSectionComponent :price="550" content="Часть ракеты" :icon="RocketIcon"
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 2"/>
-        <ShopSectionComponent :price="1000" content="Часть ракеты" :icon="RocketIcon"
+        <ShopSectionComponent :price="700" content="Часть ракеты" :icon="RocketIcon"
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 3"/>
-        <ShopSectionComponent :price="1500" content="Запуск ракеты" :icon="RocketIcon"
+        <ShopSectionComponent :price="1000" content="Запуск ракеты" :icon="RocketIcon"
                               :click="stage_store.upgradeRocket" v-if="stage_store.currentRocketStage === 4"/>
       </div>
       <div>
-        <ShopSectionComponent :price="500" content="Кирка" :icon="PickaxeIcon"
+        <ShopSectionComponent :price="100" content="Кирка" :icon="PickaxeIcon"
                               :click="pickaxe_store.setPickaxe1" v-if="pickaxe_store.isActivePickaxe1 === false"/>
-        <ShopSectionComponent :price="1000" content="Кирка" :icon="PickaxeIcon"
+        <ShopSectionComponent :price="300" content="Кирка" :icon="PickaxeIcon"
                               :click="pickaxe_store.setPickaxe2"
                               v-if="pickaxe_store.isActivePickaxe2 === false && pickaxe_store.isActivePickaxe1"/>
       </div>
       <div>
-        <ShopSectionComponent :price="1000" content="Улучшение добычи" :icon="UpgradeIcon"
+        <ShopSectionComponent :price="500" content="Улучшение добычи" :icon="UpgradeIcon"
                               :click="crystal_store.setDoubleCrystal" v-if="crystal_store.isDoubleCrystal === false"/>
       </div>
     </article>

@@ -9,17 +9,20 @@ const router = createRouter({
     {
       path: '/',
       name: 'Mine',
-      component: MineView
+      component: MineView,
+      meta: {transition: 'fade'}
     },
     {
       path: '/surface',
       name: 'Surface',
-      component: SurfaceView
+      component: SurfaceView,
+      meta: {transition: 'fade'}
     },
     {
       path: '/shop',
       name: 'Shop',
-      component: ShopView
+      component: ShopView,
+      meta: {transition: 'fade'}
     }
   ],
 })

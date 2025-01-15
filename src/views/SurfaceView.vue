@@ -19,6 +19,9 @@ onMounted(() => {
     setTimeout(() => {
       isRocketActive.value = true
     })
+    setTimeout(() => {
+      document.querySelector(".congratulations").classList.add("active")
+    }, )
   }
 })
 </script>
@@ -32,10 +35,15 @@ onMounted(() => {
            v-if="!isSidebarActive">
     </div>
     <RocketComponent :stage="stage_store.currentRocketStage" :is-active="isRocketActive"/>
+    <div v-if="isRocketActive" class="congratulations">
+      <h1>Спасибо за игру!</h1>
+    </div>
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/variables.scss";
+
 main {
   position: relative;
   height: fit-content;
@@ -52,4 +60,26 @@ main {
   height: 1.75rem;
 }
 
+.congratulations {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 15rem;
+  padding: 1rem;
+  background-color: var(--default-color);
+  border-radius: 1rem;
+  transform:translate(-50%, 600%);
+  transition: transform 1s ease-in-out;
+
+  &.active {
+    transform:translate(-50%, -50%);
+  }
+
+  > h1 {
+    @include variables.capital-text;
+    color: var(--text-color);
+    text-shadow: var(--text-shadow);
+    font-size: 1.5rem;
+  }
+}
 </style>

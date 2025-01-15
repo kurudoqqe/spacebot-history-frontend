@@ -26,6 +26,7 @@ const pickaxe_store = usePickaxeStore()
          v-if="!isSidebarActive">
     <CrystalCountComponent size="large" :count="crystal_store.crystalCount"
     class="crystal-count"/>
+    <h1 v-if="crystal_store.crystalCount === 0">Кликай!</h1>
     <MoonCrystal class="crystal-main" size="medium"
                  :clickable="true" :farming="false"/>
     <MoonCrystal class="crystal-additional-1" size="small"
@@ -35,7 +36,9 @@ const pickaxe_store = usePickaxeStore()
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/variables.scss";
+
 main {
   position: relative;
   height: fit-content;
@@ -44,6 +47,17 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  > h1 {
+    @include variables.capital-text;
+    color: var(--text-color);
+    text-shadow: var(--text-shadow);
+    font-size: 2rem;
+    padding: 1rem;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+  }
 }
 
 .menu-icon {
